@@ -30,15 +30,6 @@ app.get('/', function (req, res) {
       })
   })
 
-//   app.get('/', function (req, res) {
-//     // getting all the data
-//     db.collection('destinationsCollection')
-//       .find()
-//       .toArray(function (err, items) {
-//         res.send(items)
-//       })
-//   })
-
 app.post('/create', function (req, res) {
     // Sending request to create a data
     db.collection('destinationsCollection').insertOne( req.body , function (
@@ -74,14 +65,3 @@ app.delete('/delete/destination/:id', async (req, res) => {
     // //put returned reports into the result provided
     // res.status(200).json(reportInfo);
 });
-
-// dosent work try look at request and response
-// app.delete('/delete', function (req, res) {
-//     db.collection('destinationsCollection').deleteOne({ 
-//         _id: new mongodb.ObjectId(req.body.id) 
-//     },
-//         function () {
-//             res.send('Successfully deleted!')
-//         }
-//     )
-// })
