@@ -43,7 +43,7 @@ app.get('/' , function (req , res) {
     res.send(travel);
     });
 });
-mongoose.js
+
 app.put('/:id', function(req, res) {
     Travel.updateOne({_id: req.params.id}, {
       country: req.body.country,
@@ -59,31 +59,30 @@ app.put('/:id', function(req, res) {
     })
   })
   
-    // Work in progress
-// app.update('/:id', ((req, res) => {
-//     const itemToUpdate = Travel
-//       .findByIdAndUpdate(req.params.id)
-//       .catch(err => res.status(400).send(err.message))
-  
-//     res.status(200).send(itemToUpdate)
-//   }))
-
-app.delete('/:id', ((req, res) => {
-    const deletedItem = Travel
-      .findByIdAndDelete(req.params.id)
-      .catch(err => res.status(400).send(err.message))
-  
-    res.status(200).send(deletedItem)
-  }))
+  app.delete('/:id', function(req, res) {
+    Travel.remove({_id: req.params.id}, function(err, result) {
+      if (err) {
+        console.err(err);
+      } else {
+        res.json(result);
+      }
+    })
+  })
 
   // Work in progress
-//   app.delete('/:id', function(req, res) {
-//     Travel.remove({_id: req.params.id}, function(err, result) {
-//       if (err) {
-//         console.err(err);
-//       } else {
-//         res.json(result);
-//       }
-//     })
-//   })
+// app.delete('/:id', ((req, res) => {
+//     const deletedItem = Travel
+//       .findByIdAndDelete(req.params.id)
+//       .catch(err => res.status(400).send(err.message))
+  
+//     res.status(200).send(deletedItem)
+//   }))
 
+    // Work in progress
+    // app.update('/:id', ((req, res) => {
+    //     const itemToUpdate = Travel
+    //       .findByIdAndUpdate(req.params.id)
+    //       .catch(err => res.status(400).send(err.message))
+      
+    //     res.status(200).send(itemToUpdate)
+    //   }))

@@ -18,4 +18,4 @@ const traveldestinationTestSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('traveldestinations',traveldestinationTestSchema);
+module.exports = mongoose.model('traveldestinations',traveldestinationTestSchema)
