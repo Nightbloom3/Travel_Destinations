@@ -1,7 +1,7 @@
 const express = require('express');
 const mongodb = require('mongodb').MongoClient;
 const app = express()
-const { MongoClient, ObjectId } = require('mongodb');
+//const { MongoClient, ObjectId } = require('mongodb');
 
 var cors = require('cors')
 app.use(cors())
@@ -40,16 +40,16 @@ app.post('/create', function (req, res) {
     })
   })
 
-// app.put('/update/destination/:id', function (req, res) {
-//     db.collection('destinationsCollection').findOneAndUpdate({ _id: new mongodb.ObjectId(req.body.id) 
-//     }, { 
-//         $set: { text: req.body.text } 
-//     },
-//         function () {
-//             res.send('Success updated!')
-//         }
-//     )
-// })
+app.put('/update/destination/:id', function (req, res) {
+    db.collection('destinationsCollection').findOneAndUpdate({ _id: new mongodb.ObjectId(req.body.id) 
+    }, { 
+        $set: { text: req.body.text } 
+    },
+        function () {
+            res.send('Success updated!')
+        }
+    )
+})
 
 app.delete('/delete/destination/:id', async (req, res) => {
     //delete command 
