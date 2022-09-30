@@ -27,6 +27,7 @@ async function postData(travel) {
         method: "POST",
         headers: {"Content-Type": "application/json",
     },
+    // change back to --         body: JSON.stringify({travel}),
         body: JSON.stringify({travel}),
     })
         console.log(travel);

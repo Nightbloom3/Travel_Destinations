@@ -1,7 +1,7 @@
 const express = require('express');
 const mongodb = require('mongodb').MongoClient;
 const app = express()
-//const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 var cors = require('cors')
 app.use(cors())
@@ -40,20 +40,26 @@ app.post('/create', function (req, res) {
     })
   })
 
-app.put('/update/destination/:id', function (req, res) {
-    db.collection('destinationsCollection').findOneAndUpdate({ _id: new mongodb.ObjectId(req.body.id) 
-    }, { 
-        $set: { text: req.body.text } 
-    },
-        function () {
-            res.send('Success updated!')
-        }
-    )
+app.put('/:id', async function (req, res) {
+  db.collection('destinationsCollection').findOneAndUpdate({ _id: ObjectId(req.params.id) 
+  }, { 
+      $set: { travel: {
+        country: req.body.country,
+        location: req.body.location,
+        period: req.body.period,
+        description: req.body.description
+      }
+      } 
+  },
+      function () {
+        res.status(418).json()
+        res.send("wup wup update complete")
+      }
+  )
 })
 
-app.delete('/delete/destination/:id', async (req, res) => {
-    //delete command 
-    const result = await db.collection('destinationsCollection').deleteOne( { _id : new ObjectId(req.params.id)
+app.delete('/:id', async (req, res) => {
+    const result = await db.collection('destinationsCollection').deleteOne({ _id : new ObjectId(req.params.id)
     },
     function () {
         res.send('Successfully deleted!')

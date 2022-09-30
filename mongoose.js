@@ -21,7 +21,7 @@ const TravelSchema = new mongoose.Schema({
     location: {type: String},
     period: {type: String},
     description: {type: String}
-  });
+});
 
 const Travel = mongoose.model("Travel", TravelSchema)
 
@@ -57,7 +57,7 @@ app.put('/:id', function(req, res) {
         res.json(result);
       }
     })
-  })
+  });
   
   app.delete('/:id', function(req, res) {
     Travel.remove({_id: req.params.id}, function(err, result) {
@@ -67,7 +67,7 @@ app.put('/:id', function(req, res) {
         res.json(result);
       }
     })
-  })
+  });
 
   // Work in progress
 // app.delete('/:id', ((req, res) => {
