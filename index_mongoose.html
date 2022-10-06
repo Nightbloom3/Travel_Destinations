@@ -12,6 +12,7 @@
     <header>
         <h1>Travelling Destinations</h1>
         <a href="create_mongoose.html">Create</a>
+        <a href="update_mongoose.html">Update page</a>
     </header>
     <br>
     <br>
@@ -22,13 +23,15 @@
     <div class="travel-list"></div>
 
     <template id="travel-card">
-        <div class="mini-card" id="temp">
+        <div class="mini-card">
+            <!-- id="travel_id"> -->
             <h3>
+                <span id="travel_id"></span>
                 <span id="country">Japan</span>
                 <span id="location">Tokyo</span>
                 <span id="period">Monday - Wensday</span>
                 <span id="description">Spa Tour</span>
-                <button id="edit">Edit</button>
+                <button id="edit" onClick="update()">Edit</button>
             </h3>
         </div>
     </template>
@@ -36,5 +39,6 @@
     <script src="script_mongoose.js"></script>
     <script src="index_script_mongoose.js"></script>
     <script src="mongoose.js"></script>
+    <script src="update_script_mongoose.js"></script>
 </body>
 </html>

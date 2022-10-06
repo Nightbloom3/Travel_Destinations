@@ -25,7 +25,7 @@ function fillTravelTemplate(travel) {
     console.log(travel);
   
     // Nested objects - therefor need to point for the second key value (Todo - Change obj name)
-      clone.querySelector("#temp").id = travel._id;
+      clone.querySelector("#travel_id").id = travel._id;
       clone.querySelector("#country").textContent = travel.country;
       clone.querySelector("#location").textContent = travel.location;
       clone.querySelector("#period").textContent = travel.period;
