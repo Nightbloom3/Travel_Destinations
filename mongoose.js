@@ -117,7 +117,7 @@ app.delete("/:id", function (req, res) {
   });
 });
 
-// Work in progress
+// Alternate function
 // app.delete('/:id', ((req, res) => {
 //     const deletedItem = Travel
 //       .findByIdAndDelete(req.params.id)
@@ -126,7 +126,7 @@ app.delete("/:id", function (req, res) {
 //     res.status(200).send(deletedItem)
 //   }))
 
-// Work in progress
+// Alternate function
 // app.update('/:id', ((req, res) => {
 //     const itemToUpdate = Travel
 //       .findByIdAndUpdate(req.params.id)
