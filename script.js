@@ -1,4 +1,3 @@
-
 window.addEventListener("load", async () => {
     await loadAndShowData();
 });
@@ -59,10 +58,3 @@ function clearForm() {
     document.querySelector("#period").value = "";
     document.querySelector("#description").value = "";
 }
-  
-
-
-
-
-
-  

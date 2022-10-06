@@ -1,5 +1,6 @@
-
 const form = document.querySelector("#travel-form");
+
+const url = "http://localhost:5000/";
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -15,35 +16,29 @@ form.addEventListener("submit", async (event) => {
     console.log(response);
     console.log(travel);
 
-    if (response.status === 201) {
-        clearForm();
-        const newNode = fillTravelTemplate(travel);
-        displayNewNode(newNode);
-    }
+    // if (response.status === 201) {
+    //     clearForm();
+    //     const newNode = fillTravelTemplate(travel);
+    //     displayNewNode(newNode);
+    // }
+    clearForm();
 });
 
 async function postData(travel) {
-    const response = await fetch(url + 'create',{
+    const response = await fetch(url, {
         method: "POST",
         headers: {"Content-Type": "application/json",
     },
     // change back to --         body: JSON.stringify({travel}),
-        body: JSON.stringify({travel}),
+        body: JSON.stringify(travel),
     })
         console.log(travel);
     return response;
 };
 
-const url = "http://localhost:5000/";
-
-// Get list from database
-async function getData() {
-    // First async action
-    const result = await fetch(url);
-    console.log(result);
-    // Second async action
-    const body = await result.json();
-    console.log(body);
-    
-    return body;
+function clearForm() {
+    document.querySelector("#country").value = "";
+    document.querySelector("#location").value = "";
+    document.querySelector("#period").value = "";
+    document.querySelector("#description").value = "";
 }
