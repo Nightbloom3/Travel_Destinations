@@ -15,7 +15,7 @@ form.addEventListener("submit", async (event) => {
     console.log(response);
     console.log(travel);
 
-    if (response.status === 200) {
+    if (response.status === 201) {
         clearForm();
         const newNode = fillTravelTemplate(travel);
         displayNewNode(newNode);
@@ -31,6 +31,8 @@ async function postData(travel) {
         body: JSON.stringify({travel}),
     })
         console.log(travel);
+        // Loads and show after create
+        loadAndShowData();
     return response;
 };
 
