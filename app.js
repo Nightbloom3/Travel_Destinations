@@ -64,10 +64,4 @@ app.delete('/:id', async (req, res) => {
     function () {
         res.send('Successfully deleted!')
     } );
-    
-    // //get reports
-    // const reportInfo = await db.collection('reports').find().toArray()
-    
-    // //put returned reports into the result provided
-    // res.status(200).json(reportInfo);
 });

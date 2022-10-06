@@ -16,11 +16,6 @@ form.addEventListener("submit", async (event) => {
     console.log(response);
     console.log(travel);
 
-    // if (response.status === 201) {
-    //     clearForm();
-    //     const newNode = fillTravelTemplate(travel);
-    //     displayNewNode(newNode);
-    // }
     clearForm();
 });
 
