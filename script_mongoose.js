@@ -1,7 +1,3 @@
-window.addEventListener("load", async () => {
-  await loadAndShowData();
-});
-
 async function loadAndShowData() {
   // Get the html element
   const travelListElement = document.querySelector(".travel-list");
@@ -22,7 +18,6 @@ function fillTravelTemplate(travel) {
   // Clone template
   const clone = document.importNode(template.content, true);
   // Fill information into the cloned templated
-  console.log(travel);
 
   // Nested objects - therefor need to point for the second key value (Todo - Change obj name)
   clone.querySelector("#travel_id").id = travel._id;

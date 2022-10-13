@@ -84,11 +84,23 @@ app.post("/", function (req, res, next) {
 
 app.get("/", function (req, res) {
   Travel.find({}).then(function (travel) {
-    res.status(200).send(travel);
+    res.status(200).json(travel);
+  });
+});
+
+app.get("/:id", function (req, res) {
+  console.log(req.params.id);
+  Travel.findOne({ _id: req.params.id }, (err, travel) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(travel);
+    res.status(200).json(travel);
   });
 });
 
 app.put("/:id", function (req, res) {
+  console.log(req.body);
   Travel.updateOne(
     { _id: req.params.id },
     {

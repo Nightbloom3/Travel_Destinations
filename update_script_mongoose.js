@@ -1,6 +1,29 @@
-const template = document.querySelector("#update-travel-form");
+window.addEventListener("load", async function () {
+  const id = getIdFromUrl();
+  console.log(id);
+  const travel = await getSpecificTravel(id);
+  console.log(travel);
+  fillInTheForm(travel);
+});
 
-template.addEventListener("submit", async (event) => {
+function getIdFromUrl() {
+  const location = window.location.toString();
+  const splitQuestionMark = location.split("?");
+  const routeParams = splitQuestionMark[1];
+  const splitIdParam = routeParams.split("=");
+  return splitIdParam[1];
+}
+
+function fillInTheForm(travel) {
+  document.querySelector("#country").value = travel.country;
+  document.querySelector("#location").value = travel.location;
+  document.querySelector("#period").value = travel.period;
+  document.querySelector("#description").value = travel.description;
+}
+
+const form = document.querySelector("#update-travel-form");
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const travel = {
@@ -10,37 +33,29 @@ template.addEventListener("submit", async (event) => {
     description: document.querySelector("#description").value,
   };
 
-  const response = await putData(travel);
-  console.log(response);
-  console.log(travel);
+  const id = getIdFromUrl();
+
+  await putSpecificTravel(id, travel);
 });
-function update(travel) {
-  const id = travel._id;
-  console.log(id);
+
+const url = "http://127.0.0.1:5000/";
+
+async function getSpecificTravel(id) {
+  const response = await fetch(url + id);
+  const body = await response.json();
+  return body;
 }
 
-// template.addEventListener("submit", async (event) => {
-//     event.preventDefault();
-
-//     const travel = {
-//         country: document.querySelector("#country").value,
-//         location: document.querySelector("#location").value,
-//         period: document.querySelector("#period").value,
-//         description: document.querySelector("#description").value,
-//     };
-
-//     const response = await putData(travel);
-//     console.log(response);
-//     console.log(travel);
-// });
-
-async function putData(id) {
-  const response = await fetch(url, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    // change back to --         body: JSON.stringify({travel}),
-    body: JSON.stringify(travel),
-  });
+async function putSpecificTravel(id, travel) {
+  console.log(id);
   console.log(travel);
+  const response = await fetch(url + id, {
+    method: "PUT",
+    body: JSON.stringify(travel),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response);
   return response;
 }
