@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="/styles.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 </head>
 <body>
     <header>
-        <h1>Create page</h1>
-        <a href="index_mongoose.html">Home page</a>
+        <h1>Update page</h1>
+        <a href="index.html">Home page</a>
+        <a href="create.html">Create page</a>
     </header>
 
     <div class="container">
         <div class="form-box">
-            <form class="card" id="travel-form">
+            <form class="card" id="update-travel-form">
                 <h2>Create a new travel destination</h2>
                 <div class="form-element">
                     <input type="text" placeholder="Country" required id="country" />
@@ -30,13 +31,12 @@
                 <div class="form-element">
                     <input type="text" placeholder="Description" id="description" />
                 </div>
-                <input type="submit" value="Create"/>
+                <input type="submit" value="Change"/>
             </form>
         </div>
     </div>
 
-
-    <script src="create_script_mongoose.js"></script>
-    <script src="mongoose.js"></script>
+    <script src="/mongoose/scripts/update.js"></script>
+    <script src="/server.js"></script>
 </body>
 </html>
