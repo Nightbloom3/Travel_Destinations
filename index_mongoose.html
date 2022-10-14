@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
+</head>
+<body>
+    <header>
+        <h1>Travelling Destinations</h1>
+        <a href="create_mongoose.html">Create</a>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="travel-list"></div>
+
+    <template id="travel-card">
+        <div class="mini-card">
+            <!-- id="travel_id"> -->
+            <h3>
+                <span id="travel_id"></span>
+                <span id="country">Japan</span>
+                <span id="location">Tokyo</span>
+                <span id="period">Monday - Wensday</span>
+                <span id="description">Spa Tour</span>
+                <button id="edit">Edit</button>
+            </h3>
+        </div>
+    </template>
+
+    <script src="script_mongoose.js"></script>
+    <script src="index_script_mongoose.js"></script>
+    <script src="mongoose.js"></script>
+</body>
+</html>

@@ -48,8 +48,4 @@ async function getData() {
     console.log(body);
     
     return body;
-  }
-
-
-
-
+}
